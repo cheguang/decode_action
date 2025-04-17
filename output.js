@@ -1,3 +1,6 @@
+//Thu Apr 17 2025 17:27:35 GMT+0000 (Coordinated Universal Time)
+//Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
+//Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
 //Thu Apr 17 2025 17:23:49 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
@@ -5,122 +8,88 @@ const $ = new Env("新江北");
 const notify = "";
 (() => {
   function b(a5) {
-    {
-      b = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (a8) {
-        {
-          return typeof a8;
-        }
-      } : function (a8) {
-        {
-          return a8 && "function" == typeof Symbol && a8.constructor === Symbol && a8 !== Symbol.prototype ? "symbol" : typeof a8;
-        }
-      };
-      return b(a5);
-    }
+    b = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (a8) {
+      return typeof a8;
+    } : function (a8) {
+      return a8 && "function" == typeof Symbol && a8.constructor === Symbol && a8 !== Symbol.prototype ? "symbol" : typeof a8;
+    };
+    return b(a5);
   }
   function c(a5, a6) {
-    {
-      var a8 = "undefined" != typeof Symbol && a5[Symbol.iterator] || a5["@@iterator"];
-      if (!a8) {
-        {
-          if (Array.isArray(a5) || (a8 = d(a5)) || a6 && a5 && "number" == typeof a5.length) {
-            {
-              a8 && (a5 = a8);
-              var a9 = 0;
-              var aa = function () {};
-              return {
-                s: aa,
-                n: function () {
-                  {
-                    var ag = {
-                      done: true
-                    };
-                    return a9 >= a5.length ? ag : {
-                      done: false,
-                      value: a5[a9++]
-                    };
-                  }
-                },
-                e: function (ag) {
-                  {
-                    throw ag;
-                  }
-                },
-                f: aa
-              };
-            }
+    var a8 = "undefined" != typeof Symbol && a5[Symbol.iterator] || a5["@@iterator"];
+    if (!a8) {
+      if (Array.isArray(a5) || (a8 = d(a5)) || a6 && a5 && "number" == typeof a5.length) {
+        a8 && (a5 = a8);
+        var a9 = 0;
+        var aa = function () {};
+        return {
+          s: aa,
+          n: function () {
+            var ag = {
+              done: true
+            };
+            return a9 >= a5.length ? ag : {
+              done: false,
+              value: a5[a9++]
+            };
+          },
+          e: function (ag) {
+            throw ag;
+          },
+          f: aa
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    var ab;
+    var ac = true;
+    var ad = false;
+    return {
+      s: function () {
+        a8 = a8.call(a5);
+      },
+      n: function () {
+        var ai = a8.next();
+        ac = ai.done;
+        return ai;
+      },
+      e: function (ah) {
+        ad = true;
+        ab = ah;
+      },
+      f: function () {
+        try {
+          ac || null == a8.return || a8.return();
+        } finally {
+          if (ad) {
+            throw ab;
           }
-          throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
         }
       }
-      var ab;
-      var ac = true;
-      var ad = false;
-      return {
-        s: function () {
-          {
-            a8 = a8.call(a5);
-          }
-        },
-        n: function () {
-          {
-            var ai = a8.next();
-            ac = ai.done;
-            return ai;
-          }
-        },
-        e: function (ah) {
-          {
-            ad = true;
-            ab = ah;
-          }
-        },
-        f: function () {
-          {
-            try {
-              {
-                ac || null == a8.return || a8.return();
-              }
-            } finally {
-              {
-                if (ad) {
-                  throw ab;
-                }
-              }
-            }
-          }
-        }
-      };
-    }
+    };
   }
   function d(a5, a6) {
     if (a5) {
-      {
-        if ("string" == typeof a5) {
-          return f(a5, a6);
-        }
-        var a7 = {}.toString.call(a5).slice(8, -1);
-        "Object" === a7 && a5.constructor && (a7 = a5.constructor.name);
-        return "Map" === a7 || "Set" === a7 ? Array.from(a5) : "Arguments" === a7 || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a7) ? f(a5, a6) : undefined;
+      if ("string" == typeof a5) {
+        return f(a5, a6);
       }
+      var a7 = {}.toString.call(a5).slice(8, -1);
+      "Object" === a7 && a5.constructor && (a7 = a5.constructor.name);
+      return "Map" === a7 || "Set" === a7 ? Array.from(a5) : "Arguments" === a7 || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a7) ? f(a5, a6) : undefined;
     }
   }
   function f(a5, a6) {
-    {
-      (null == a6 || a6 > a5.length) && (a6 = a5.length);
-      for (var a7 = 0, a8 = Array(a6); a7 < a6; a7++) {
-        a8[a7] = a5[a7];
-      }
-      return a8;
+    (null == a6 || a6 > a5.length) && (a6 = a5.length);
+    for (var a7 = 0, a8 = Array(a6); a7 < a6; a7++) {
+      a8[a7] = a5[a7];
     }
+    return a8;
   }
   function g() {
     "use strict";
 
     g = function () {
-      {
-        return a7;
-      }
+      return a7;
     };
     var a6;
     var a7 = {
@@ -135,87 +104,67 @@ const notify = "";
         return aF;
       },
       awrap: function (aF) {
-        {
-          var aH = {
-            __await: aF
-          };
-          return aH;
-        }
+        var aH = {
+          __await: aF
+        };
+        return aH;
       },
       AsyncIterator: av,
       async: function (aF, aG, aH, aI, aJ) {
-        {
-          undefined === aJ && (aJ = Promise);
-          var aM = new av(ag(aF, aG, aH, aI), aJ);
-          return a7.isGeneratorFunction(aG) ? aM : aM.next().then(function (aO) {
-            return aO.done ? aO.value : aM.next();
-          });
-        }
+        undefined === aJ && (aJ = Promise);
+        var aM = new av(ag(aF, aG, aH, aI), aJ);
+        return a7.isGeneratorFunction(aG) ? aM : aM.next().then(function (aO) {
+          return aO.done ? aO.value : aM.next();
+        });
       }
     };
     var a8 = Object.prototype;
     var a9 = a8.hasOwnProperty;
     var aa = Object.defineProperty || function (aC, aD, aE) {
-      {
-        aC[aD] = aE.value;
-      }
+      aC[aD] = aE.value;
     };
     var ab = "function" == typeof Symbol ? Symbol : {};
     var ac = ab.iterator || "@@iterator";
     var ad = ab.asyncIterator || "@@asyncIterator";
     var ae = ab.toStringTag || "@@toStringTag";
     function af(aC, aD, aE) {
-      {
-        var aF = {
-          value: aE,
-          enumerable: true,
-          configurable: true,
-          writable: true
-        };
-        Object.defineProperty(aC, aD, aF);
-        return aC[aD];
-      }
+      var aF = {
+        value: aE,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      };
+      Object.defineProperty(aC, aD, aF);
+      return aC[aD];
     }
     try {
       af({}, "");
     } catch (aD) {
-      {
-        af = function (aE, aF, aG) {
-          {
-            return aE[aF] = aG;
-          }
-        };
-      }
+      af = function (aE, aF, aG) {
+        return aE[aF] = aG;
+      };
     }
     function ag(aF, aG, aH, aI) {
-      {
-        var aJ = aG && aG.prototype instanceof an ? aG : an;
-        var aK = Object.create(aJ.prototype);
-        var aL = new aA(aI || []);
-        aa(aK, "_invoke", {
-          value: aw(aF, aH, aL)
-        });
-        return aK;
-      }
+      var aJ = aG && aG.prototype instanceof an ? aG : an;
+      var aK = Object.create(aJ.prototype);
+      var aL = new aA(aI || []);
+      aa(aK, "_invoke", {
+        value: aw(aF, aH, aL)
+      });
+      return aK;
     }
     function ah(aF, aG, aH) {
-      {
-        try {
-          {
-            return {
-              type: "normal",
-              arg: aF.call(aG, aH)
-            };
-          }
-        } catch (aK) {
-          {
-            var aI = {
-              type: "throw",
-              arg: aK
-            };
-            return aI;
-          }
-        }
+      try {
+        return {
+          type: "normal",
+          arg: aF.call(aG, aH)
+        };
+      } catch (aK) {
+        var aI = {
+          type: "throw",
+          arg: aK
+        };
+        return aI;
       }
     }
     var ai = "suspendedStart";
@@ -236,153 +185,115 @@ const notify = "";
     ap.prototype = an.prototype = Object.create(aq);
     var at = ap.prototype;
     function au(aF) {
-      {
-        ["next", "throw", "return"].forEach(function (aH) {
-          {
-            af(aF, aH, function (aK) {
-              {
-                return this._invoke(aH, aK);
-              }
-            });
-          }
+      ["next", "throw", "return"].forEach(function (aH) {
+        af(aF, aH, function (aK) {
+          return this._invoke(aH, aK);
         });
-      }
+      });
     }
     function av(aF, aG) {
-      {
-        function aK(aL, aM, aN, aO) {
-          var aQ = ah(aF[aL], aF, aM);
-          if ("throw" !== aQ.type) {
-            {
-              var aR = aQ.arg;
-              var aS = aR.value;
-              return aS && "object" == b(aS) && a9.call(aS, "__await") ? aG.resolve(aS.__await).then(function (aU) {
-                aK("next", aU, aN, aO);
-              }, function (aU) {
-                aK("throw", aU, aN, aO);
-              }) : aG.resolve(aS).then(function (aU) {
-                {
-                  aR.value = aU;
-                  aN(aR);
-                }
-              }, function (aU) {
-                {
-                  return aK("throw", aU, aN, aO);
-                }
-              });
-            }
-          }
-          aO(aQ.arg);
+      function aK(aL, aM, aN, aO) {
+        var aQ = ah(aF[aL], aF, aM);
+        if ("throw" !== aQ.type) {
+          var aR = aQ.arg;
+          var aS = aR.value;
+          return aS && "object" == b(aS) && a9.call(aS, "__await") ? aG.resolve(aS.__await).then(function (aU) {
+            aK("next", aU, aN, aO);
+          }, function (aU) {
+            aK("throw", aU, aN, aO);
+          }) : aG.resolve(aS).then(function (aU) {
+            aR.value = aU;
+            aN(aR);
+          }, function (aU) {
+            return aK("throw", aU, aN, aO);
+          });
         }
-        var aI;
-        aa(this, "_invoke", {
-          value: function (aL, aM) {
-            {
-              function aO() {
-                {
-                  return new aG(function (aP, aQ) {
-                    {
-                      aK(aL, aM, aP, aQ);
-                    }
-                  });
-                }
-              }
-              return aI = aI ? aI.then(aO, aO) : aO();
-            }
-          }
-        });
+        aO(aQ.arg);
       }
+      var aI;
+      aa(this, "_invoke", {
+        value: function (aL, aM) {
+          function aO() {
+            return new aG(function (aP, aQ) {
+              aK(aL, aM, aP, aQ);
+            });
+          }
+          return aI = aI ? aI.then(aO, aO) : aO();
+        }
+      });
     }
     function aw(aF, aG, aH) {
-      {
-        var aJ = ai;
-        return function (aL, aM) {
-          {
-            if (aJ === ak) {
-              throw Error("Generator is already running");
-            }
-            if (aJ === al) {
-              {
-                if ("throw" === aL) {
-                  throw aM;
-                }
-                var aO = {
-                  value: a6,
-                  done: true
-                };
-                return aO;
+      var aJ = ai;
+      return function (aL, aM) {
+        if (aJ === ak) {
+          throw Error("Generator is already running");
+        }
+        if (aJ === al) {
+          if ("throw" === aL) {
+            throw aM;
+          }
+          var aO = {
+            value: a6,
+            done: true
+          };
+          return aO;
+        }
+        for (aH.method = aL, aH.arg = aM;;) {
+          var aP = aH.delegate;
+          if (aP) {
+            var aQ = ax(aP, aH);
+            if (aQ) {
+              if (aQ === am) {
+                continue;
               }
-            }
-            for (aH.method = aL, aH.arg = aM;;) {
-              {
-                var aP = aH.delegate;
-                if (aP) {
-                  {
-                    var aQ = ax(aP, aH);
-                    if (aQ) {
-                      {
-                        if (aQ === am) {
-                          continue;
-                        }
-                        return aQ;
-                      }
-                    }
-                  }
-                }
-                if ("next" === aH.method) {
-                  aH.sent = aH._sent = aH.arg;
-                } else {
-                  if ("throw" === aH.method) {
-                    {
-                      if (aJ === ai) {
-                        throw aJ = al, aH.arg;
-                      }
-                      aH.dispatchException(aH.arg);
-                    }
-                  } else {
-                    "return" === aH.method && aH.abrupt("return", aH.arg);
-                  }
-                }
-                aJ = ak;
-                var aR = ah(aF, aG, aH);
-                if ("normal" === aR.type) {
-                  {
-                    if (aJ = aH.done ? al : aj, aR.arg === am) {
-                      continue;
-                    }
-                    var aS = {
-                      value: aR.arg,
-                      done: aH.done
-                    };
-                    return aS;
-                  }
-                }
-                "throw" === aR.type && (aJ = al, aH.method = "throw", aH.arg = aR.arg);
-              }
+              return aQ;
             }
           }
-        };
-      }
+          if ("next" === aH.method) {
+            aH.sent = aH._sent = aH.arg;
+          } else {
+            if ("throw" === aH.method) {
+              if (aJ === ai) {
+                throw aJ = al, aH.arg;
+              }
+              aH.dispatchException(aH.arg);
+            } else {
+              "return" === aH.method && aH.abrupt("return", aH.arg);
+            }
+          }
+          aJ = ak;
+          var aR = ah(aF, aG, aH);
+          if ("normal" === aR.type) {
+            if (aJ = aH.done ? al : aj, aR.arg === am) {
+              continue;
+            }
+            var aS = {
+              value: aR.arg,
+              done: aH.done
+            };
+            return aS;
+          }
+          "throw" === aR.type && (aJ = al, aH.method = "throw", aH.arg = aR.arg);
+        }
+      };
     }
     function ax(aF, aG) {
-      {
-        var aH = aG.method;
-        var aI = aF.iterator[aH];
-        if (aI === a6) {
-          aG.delegate = null;
-          "throw" === aH && aF.iterator.return && (aG.method = "return", aG.arg = a6, ax(aF, aG), "throw" === aG.method) || "return" !== aH && (aG.method = "throw", aG.arg = new TypeError("The iterator does not provide a '" + aH + "' method"));
-          return am;
-        }
-        var aJ = ah(aI, aF.iterator, aG.arg);
-        if ("throw" === aJ.type) {
-          aG.method = "throw";
-          aG.arg = aJ.arg;
-          aG.delegate = null;
-          return am;
-        }
-        var aK = aJ.arg;
-        return aK ? aK.done ? (aG[aF.resultName] = aK.value, aG.next = aF.nextLoc, "return" !== aG.method && (aG.method = "next", aG.arg = a6), aG.delegate = null, am) : aK : (aG.method = "throw", aG.arg = new TypeError("iterator result is not an object"), aG.delegate = null, am);
+      var aH = aG.method;
+      var aI = aF.iterator[aH];
+      if (aI === a6) {
+        aG.delegate = null;
+        "throw" === aH && aF.iterator.return && (aG.method = "return", aG.arg = a6, ax(aF, aG), "throw" === aG.method) || "return" !== aH && (aG.method = "throw", aG.arg = new TypeError("The iterator does not provide a '" + aH + "' method"));
+        return am;
       }
+      var aJ = ah(aI, aF.iterator, aG.arg);
+      if ("throw" === aJ.type) {
+        aG.method = "throw";
+        aG.arg = aJ.arg;
+        aG.delegate = null;
+        return am;
+      }
+      var aK = aJ.arg;
+      return aK ? aK.done ? (aG[aF.resultName] = aK.value, aG.next = aF.nextLoc, "return" !== aG.method && (aG.method = "next", aG.arg = a6), aG.delegate = null, am) : aK : (aG.method = "throw", aG.arg = new TypeError("iterator result is not an object"), aG.delegate = null, am);
     }
     function ay(aF) {
       var aH = {
@@ -393,58 +304,46 @@ const notify = "";
       this.tryEntries.push(aH);
     }
     function az(aF) {
-      {
-        var aG = aF.completion || {};
-        aG.type = "normal";
-        delete aG.arg;
-        aF.completion = aG;
-      }
+      var aG = aF.completion || {};
+      aG.type = "normal";
+      delete aG.arg;
+      aF.completion = aG;
     }
     function aA(aF) {
-      {
-        var aG = {
-          tryLoc: "root"
-        };
-        this.tryEntries = [aG];
-        aF.forEach(ay, this);
-        this.reset(true);
-      }
+      var aG = {
+        tryLoc: "root"
+      };
+      this.tryEntries = [aG];
+      aF.forEach(ay, this);
+      this.reset(true);
     }
     function aB(aF) {
-      {
-        if (aF || "" === aF) {
-          {
-            var aG = aF[ac];
-            if (aG) {
-              return aG.call(aF);
-            }
-            if ("function" == typeof aF.next) {
-              return aF;
-            }
-            if (!isNaN(aF.length)) {
-              {
-                var aH = -1;
-                var aI = function aK() {
-                  {
-                    for (; ++aH < aF.length;) {
-                      if (a9.call(aF, aH)) {
-                        aK.value = aF[aH];
-                        aK.done = false;
-                        return aK;
-                      }
-                    }
-                    aK.value = a6;
-                    aK.done = true;
-                    return aK;
-                  }
-                };
-                return aI.next = aI;
+      if (aF || "" === aF) {
+        var aG = aF[ac];
+        if (aG) {
+          return aG.call(aF);
+        }
+        if ("function" == typeof aF.next) {
+          return aF;
+        }
+        if (!isNaN(aF.length)) {
+          var aH = -1;
+          var aI = function aK() {
+            for (; ++aH < aF.length;) {
+              if (a9.call(aF, aH)) {
+                aK.value = aF[aH];
+                aK.done = false;
+                return aK;
               }
             }
-          }
+            aK.value = a6;
+            aK.done = true;
+            return aK;
+          };
+          return aI.next = aI;
         }
-        throw new TypeError(b(aF) + " is not iterable");
       }
+      throw new TypeError(b(aF) + " is not iterable");
     }
     ao.prototype = ap;
     aa(at, "constructor", {
@@ -458,117 +357,89 @@ const notify = "";
     ao.displayName = af(ap, ae, "GeneratorFunction");
     au(av.prototype);
     af(av.prototype, ad, function () {
-      {
-        return this;
-      }
+      return this;
     });
     au(at);
     af(at, ae, "Generator");
     af(at, ac, function () {
-      {
-        return this;
-      }
+      return this;
     });
     af(at, "toString", function () {
-      {
-        return "[object Generator]";
-      }
+      return "[object Generator]";
     });
     a7.keys = function (aF) {
-      {
-        var aH = Object(aF);
-        var aI = [];
-        for (var aJ in aH) aI.push(aJ);
-        aI.reverse();
-        return function aL() {
-          {
-            for (; aI.length;) {
-              {
-                var aM = aI.pop();
-                if (aM in aH) {
-                  aL.value = aM;
-                  aL.done = false;
-                  return aL;
-                }
-              }
-            }
-            aL.done = true;
+      var aH = Object(aF);
+      var aI = [];
+      for (var aJ in aH) aI.push(aJ);
+      aI.reverse();
+      return function aL() {
+        for (; aI.length;) {
+          var aM = aI.pop();
+          if (aM in aH) {
+            aL.value = aM;
+            aL.done = false;
             return aL;
           }
-        };
-      }
+        }
+        aL.done = true;
+        return aL;
+      };
     };
     a7.values = aB;
     aA.prototype = {
       constructor: aA,
       reset: function (aF) {
-        {
-          if (this.prev = 0, this.next = 0, this.sent = this._sent = a6, this.done = false, this.delegate = null, this.method = "next", this.arg = a6, this.tryEntries.forEach(az), !aF) {
-            for (var aG in this) "t" === aG.charAt(0) && a9.call(this, aG) && !isNaN(+aG.slice(1)) && (this[aG] = a6);
-          }
+        if (this.prev = 0, this.next = 0, this.sent = this._sent = a6, this.done = false, this.delegate = null, this.method = "next", this.arg = a6, this.tryEntries.forEach(az), !aF) {
+          for (var aG in this) "t" === aG.charAt(0) && a9.call(this, aG) && !isNaN(+aG.slice(1)) && (this[aG] = a6);
         }
       },
       stop: function () {
-        {
-          this.done = true;
-          var aF = this.tryEntries[0].completion;
-          if ("throw" === aF.type) {
-            throw aF.arg;
-          }
-          return this.rval;
+        this.done = true;
+        var aF = this.tryEntries[0].completion;
+        if ("throw" === aF.type) {
+          throw aF.arg;
         }
+        return this.rval;
       },
       dispatchException: function (aF) {
-        {
-          if (this.done) {
-            throw aF;
+        if (this.done) {
+          throw aF;
+        }
+        var aH = this;
+        function aN(aO, aP) {
+          aK.type = "throw";
+          aK.arg = aF;
+          aH.next = aO;
+          aP && (aH.method = "next", aH.arg = a6);
+          return !!aP;
+        }
+        for (var aI = this.tryEntries.length - 1; aI >= 0; --aI) {
+          var aJ = this.tryEntries[aI];
+          var aK = aJ.completion;
+          if ("root" === aJ.tryLoc) {
+            return aN("end");
           }
-          var aH = this;
-          function aN(aO, aP) {
-            aK.type = "throw";
-            aK.arg = aF;
-            aH.next = aO;
-            aP && (aH.method = "next", aH.arg = a6);
-            return !!aP;
-          }
-          for (var aI = this.tryEntries.length - 1; aI >= 0; --aI) {
-            {
-              var aJ = this.tryEntries[aI];
-              var aK = aJ.completion;
-              if ("root" === aJ.tryLoc) {
-                return aN("end");
+          if (aJ.tryLoc <= this.prev) {
+            var aL = a9.call(aJ, "catchLoc");
+            var aM = a9.call(aJ, "finallyLoc");
+            if (aL && aM) {
+              if (this.prev < aJ.catchLoc) {
+                return aN(aJ.catchLoc, true);
               }
-              if (aJ.tryLoc <= this.prev) {
-                {
-                  var aL = a9.call(aJ, "catchLoc");
-                  var aM = a9.call(aJ, "finallyLoc");
-                  if (aL && aM) {
-                    {
-                      if (this.prev < aJ.catchLoc) {
-                        return aN(aJ.catchLoc, true);
-                      }
-                      if (this.prev < aJ.finallyLoc) {
-                        return aN(aJ.finallyLoc);
-                      }
-                    }
-                  } else {
-                    if (aL) {
-                      {
-                        if (this.prev < aJ.catchLoc) {
-                          return aN(aJ.catchLoc, true);
-                        }
-                      }
-                    } else {
-                      {
-                        if (!aM) {
-                          throw Error("try statement without catch or finally");
-                        }
-                        if (this.prev < aJ.finallyLoc) {
-                          return aN(aJ.finallyLoc);
-                        }
-                      }
-                    }
-                  }
+              if (this.prev < aJ.finallyLoc) {
+                return aN(aJ.finallyLoc);
+              }
+            } else {
+              if (aL) {
+                if (this.prev < aJ.catchLoc) {
+                  return aN(aJ.catchLoc, true);
+                }
+              } else {
+                if (!aM) {
+                  throw Error("try statement without catch or finally");
+                }
+                if (this.prev < aJ.finallyLoc) {
+                  return aN(aJ.finallyLoc);
                 }
               }
             }
@@ -576,98 +447,70 @@ const notify = "";
         }
       },
       abrupt: function (aF, aG) {
-        {
-          for (var aI = this.tryEntries.length - 1; aI >= 0; --aI) {
-            {
-              var aJ = this.tryEntries[aI];
-              if (aJ.tryLoc <= this.prev && a9.call(aJ, "finallyLoc") && this.prev < aJ.finallyLoc) {
-                {
-                  var aK = aJ;
-                  break;
-                }
-              }
-            }
+        for (var aI = this.tryEntries.length - 1; aI >= 0; --aI) {
+          var aJ = this.tryEntries[aI];
+          if (aJ.tryLoc <= this.prev && a9.call(aJ, "finallyLoc") && this.prev < aJ.finallyLoc) {
+            var aK = aJ;
+            break;
           }
-          aK && ("break" === aF || "continue" === aF) && aK.tryLoc <= aG && aG <= aK.finallyLoc && (aK = null);
-          var aL = aK ? aK.completion : {};
-          aL.type = aF;
-          aL.arg = aG;
-          return aK ? (this.method = "next", this.next = aK.finallyLoc, am) : this.complete(aL);
         }
+        aK && ("break" === aF || "continue" === aF) && aK.tryLoc <= aG && aG <= aK.finallyLoc && (aK = null);
+        var aL = aK ? aK.completion : {};
+        aL.type = aF;
+        aL.arg = aG;
+        return aK ? (this.method = "next", this.next = aK.finallyLoc, am) : this.complete(aL);
       },
       complete: function (aF, aG) {
-        {
-          if ("throw" === aF.type) {
-            throw aF.arg;
-          }
-          "break" === aF.type || "continue" === aF.type ? this.next = aF.arg : "return" === aF.type ? (this.rval = this.arg = aF.arg, this.method = "return", this.next = "end") : "normal" === aF.type && aG && (this.next = aG);
-          return am;
+        if ("throw" === aF.type) {
+          throw aF.arg;
         }
+        "break" === aF.type || "continue" === aF.type ? this.next = aF.arg : "return" === aF.type ? (this.rval = this.arg = aF.arg, this.method = "return", this.next = "end") : "normal" === aF.type && aG && (this.next = aG);
+        return am;
       },
       finish: function (aF) {
-        {
-          for (var aH = this.tryEntries.length - 1; aH >= 0; --aH) {
-            {
-              var aI = this.tryEntries[aH];
-              if (aI.finallyLoc === aF) {
-                this.complete(aI.completion, aI.afterLoc);
-                az(aI);
-                return am;
-              }
-            }
+        for (var aH = this.tryEntries.length - 1; aH >= 0; --aH) {
+          var aI = this.tryEntries[aH];
+          if (aI.finallyLoc === aF) {
+            this.complete(aI.completion, aI.afterLoc);
+            az(aI);
+            return am;
           }
         }
       },
       catch: function (aF) {
-        {
-          for (var aH = this.tryEntries.length - 1; aH >= 0; --aH) {
-            {
-              var aI = this.tryEntries[aH];
-              if (aI.tryLoc === aF) {
-                {
-                  var aJ = aI.completion;
-                  if ("throw" === aJ.type) {
-                    {
-                      var aK = aJ.arg;
-                      az(aI);
-                    }
-                  }
-                  return aK;
-                }
-              }
+        for (var aH = this.tryEntries.length - 1; aH >= 0; --aH) {
+          var aI = this.tryEntries[aH];
+          if (aI.tryLoc === aF) {
+            var aJ = aI.completion;
+            if ("throw" === aJ.type) {
+              var aK = aJ.arg;
+              az(aI);
             }
+            return aK;
           }
-          throw Error("illegal catch attempt");
         }
+        throw Error("illegal catch attempt");
       },
       delegateYield: function (aF, aG, aH) {
-        {
-          this.delegate = {
-            iterator: aB(aF),
-            resultName: aG,
-            nextLoc: aH
-          };
-          "next" === this.method && (this.arg = a6);
-          return am;
-        }
+        this.delegate = {
+          iterator: aB(aF),
+          resultName: aG,
+          nextLoc: aH
+        };
+        "next" === this.method && (this.arg = a6);
+        return am;
       }
     };
     return a7;
   }
   function h(a5, a6, a7, a8, a9, aa, ab) {
-    {
-      try {
-        {
-          var ae = a5[aa](ab);
-          var af = ae.value;
-        }
-      } catch (ah) {
-        {
-          return void a7(ah);
-        }
-      }
-      ae.done ? a6(af) : Promise.resolve(af).then(a8, a9);
+    try {
+      var ae = a5[aa](ab);
+      var af = ae.value;
+    } catch (ah) {
+      return void a7(ah);
     }
+    ae.done ? a6(af) : Promise.resolve(af).then(a8, a9);
   }
   function i(a5) {
     return function () {
@@ -676,14 +519,10 @@ const notify = "";
       return new Promise(function (a9, aa) {
         var ac = a5.apply(a7, a8);
         function ad(af) {
-          {
-            h(ac, a9, aa, ad, ae, "next", af);
-          }
+          h(ac, a9, aa, ad, ae, "next", af);
         }
         function ae(af) {
-          {
-            h(ac, a9, aa, ad, ae, "throw", af);
-          }
+          h(ac, a9, aa, ad, ae, "throw", af);
         }
         ad(undefined);
       });
@@ -711,494 +550,440 @@ const notify = "";
   var B = "10050";
   var C = "FR*r!isE5W";
   function D() {
-    {
-      return E.apply(this, arguments);
-    }
+    return E.apply(this, arguments);
   }
   function E() {
-    {
-      E = i(g().mark(function a7() {
-        {
-          var a9;
-          var aa;
-          var ab;
-          var ac;
-          var ad;
-          var ae;
-          var af;
-          var ag;
-          var ah;
-          var ai;
-          var aj;
-          var ak;
-          var al;
-          var am;
-          var an;
-          var ao;
-          var ap;
-          var aq;
-          var ar;
-          var as;
-          var at;
-          var au;
-          var av;
-          var aw;
-          var ax;
-          var ay;
-          var az;
-          var aA;
-          var aB;
-          var aC;
-          var aD;
-          var aE;
-          var aF;
-          var aG;
-          var aH;
-          var aI;
-          var aJ;
-          var aK;
-          var aL;
-          var aM;
-          var aN;
-          var aO;
-          var aP;
-          var aQ;
-          var aR;
-          var aS;
-          var aT;
-          var aU;
-          var aV;
-          var aW;
-          var aX;
-          var aY;
-          var aZ;
-          var b0;
-          var b1;
-          var b2;
-          var b3;
-          return g().wrap(function b5(b6) {
-            {
-              for (;;) {
-                switch (b6.prev = b6.next) {
-                  case 0:
-                    if (console.log("作者：@xzxxn777\n频道：https://t.me/xzxxn777\n群组：https://t.me/xzxxn7777\n自用机场推荐：https://xn--diqv0fut7b.com\n"), j) {
-                      {
-                        b6.next = 6;
-                        break;
-                      }
-                    }
-                    console.log("先去boxjs填写账号密码");
-                    b6.next = 5;
-                    return a3("先去boxjs填写账号密码");
-                  case 5:
-                    return b6.abrupt("return");
-                  case 6:
-                    b6.next = 8;
-                    return a1();
-                  case 8:
-                    l = b6.sent;
-                    a9 = j.split(" ");
-                    aa = c(a9);
-                    b6.prev = 11;
-                    aa.s();
-                  case 13:
-                    if ((ab = aa.n()).done) {
-                      {
-                        b6.next = 236;
-                        break;
-                      }
-                    }
-                    ac = ab.value;
-                    console.log("随机生成UA");
-                    ad = Z();
-                    u = ad.ua;
-                    v = ad.commonUa;
-                    w = ad.uuid;
-                    console.log(u);
-                    console.log(v);
-                    q = ac.split("&")[0];
-                    r = ac.split("&")[1];
-                    s = ac.split("&")[2];
-                    t = ac.split("&")[3] || q;
-                    console.log("用户：".concat(q, "开始任务"));
-                    console.log("获取sessionId");
-                    b6.next = 30;
-                    return L("/api/account/init");
-                  case 30:
-                    ae = b6.sent;
-                    o = ae.data.session.id;
-                    console.log(o);
-                    console.log("获取signature_key");
-                    b6.next = 36;
-                    return F("/web/init?client_id=".concat(B));
-                  case 36:
-                    af = b6.sent;
-                    m = af.data.client.signature_key;
-                    console.log(m);
-                    console.log("获取code");
-                    b6.next = 42;
-                    return H("/web/oauth/credential_auth");
-                  case 42:
-                    if (ag = b6.sent, ag.data) {
-                      {
-                        b6.next = 46;
-                        break;
-                      }
-                    }
-                    console.log(ag.message);
-                    return b6.abrupt("continue", 234);
-                  case 46:
-                    ah = ag.data.authorization_code.code;
-                    console.log(ah);
-                    console.log("登录");
-                    b6.next = 51;
-                    return L("/api/zbtxz/login", "check_token=&code=".concat(ah, "&token=&type=-1&union_id="));
-                  case 51:
-                    if (ai = b6.sent, console.log("登录成功"), p = ai.data.session.account_id, o = ai.data.session.id, console.log("————————————"), y) {
-                      {
-                        b6.next = 64;
-                        break;
-                      }
-                    }
-                    console.log("获取id");
-                    b6.next = 60;
-                    return J("/api/buoy/list");
-                  case 60:
-                    aj = b6.sent;
-                    ak = /hdtool%2Findex%3Fid%3D(\d+)/;
-                    al = JSON.stringify(aj).match(ak);
-                    al && (y = al[1]);
-                  case 64:
-                    if (!y) {
-                      {
-                        b6.next = 144;
-                        break;
-                      }
-                    }
-                    console.log("阅读登录");
-                    b6.next = 68;
-                    return N("/customActivity/zjtm/autoLogin?_=".concat(Date.now(), "&sessionId=").concat(o, "&accountId=").concat(p, "&redirectUrl=https://92261.activity-14.m.duiba.com.cn/hdtool/index?id=").concat(y, "&dbnewopen"));
-                  case 68:
-                    am = b6.sent;
-                    an = am.data;
-                    x = "";
-                    b6.next = 73;
-                    return R(an);
-                  case 73:
-                    x = b6.sent;
-                    console.log("获取抽奖key");
-                    b6.next = 77;
-                    return P("https://92261.activity-14.m.duiba.com.cn/hdtool/index?id=".concat(y, "&dbnewopen&from=login&spm=92261.1.1.1"));
-                  case 77:
-                    ao = b6.sent;
-                    b6.next = 80;
-                    return T("/hdtool/ajaxElement?_=".concat(Date.now()), "hdType=dev&hdToolId=&preview=false&actId=".concat(y, "&adslotId="));
-                  case 80:
-                    ap = b6.sent;
-                    console.log("拥有".concat(ap.element.freeLimit, "次抽奖"));
-                    aq = 0;
-                  case 83:
-                    if (!(aq < ap.element.freeLimit)) {
-                      {
-                        b6.next = 142;
-                        break;
-                      }
-                    }
-                    b6.next = 86;
-                    return T("/hdtool/ctoken/getTokenNew", "timestamp=".concat(Date.now(), "&activityId=").concat(y, "&activityType=hdtool&consumerId=").concat(z));
-                  case 86:
-                    ar = b6.sent;
-                    eval(ar.token);
-                    as = window[ao];
-                    b6.next = 91;
-                    return T("/hdtool/dy/doJoin?dpm=92261.3.1.0&activityId=".concat(y, "&_=").concat(Date.now()), "actId=".concat(y, "&oaId=").concat(y, "&activityType=hdtool&consumerId=").concat(z, "&token=").concat(as));
-                  case 91:
-                    if (at = b6.sent, !at.success) {
-                      {
-                        b6.next = 138;
-                        break;
-                      }
-                    }
-                    if (at.orderId) {
-                      {
-                        b6.next = 96;
-                        break;
-                      }
-                    }
-                    console.log(at.message);
-                    return b6.abrupt("break", 142);
-                  case 96:
-                    au = at.orderId;
-                    av = 0;
-                  case 98:
-                    if (0 != av) {
-                      {
-                        b6.next = 136;
-                        break;
-                      }
-                    }
-                    b6.next = 101;
-                    return T("/hdtool/getOrderStatus?_=".concat(Date.now()), "orderId=".concat(au, "&adslotId="));
-                  case 101:
-                    if (aw = b6.sent, av = aw.result, 0 != av) {
-                      {
-                        b6.next = 107;
-                        break;
-                      }
-                    }
-                    console.log(aw.message);
-                    b6.next = 134;
-                    break;
-                  case 107:
-                    if ("thanks" == aw.lottery.type && console.log("谢谢参与"), "alipay" != aw.lottery.type) {
-                      {
-                        b6.next = 134;
-                        break;
-                      }
-                    }
-                    for (console.log("抽奖获得支付宝红包：".concat(aw.lottery.title)), ax = aw.lottery.link, ay = ax.split("?")[1], az = {}, aA = ay.split("&"), aB = 0, aC = aA.length; aB < aC; aB++) {
-                      aD = aA[aB].split("=");
-                      az[aD[0]] = aD[1];
-                    }
-                    if (aE = az.recordId, !s || !t) {
-                      {
-                        b6.next = 133;
-                        break;
-                      }
-                    }
-                    console.log("获取兑换key");
-                    b6.next = 120;
-                    return P("https://92261.activity-14.m.duiba.com.cn/activity/takePrizeNew?recordId=".concat(aE, "&dbnewopen"));
-                  case 120:
-                    ao = b6.sent;
-                    b6.next = 123;
-                    return T("/ctoken/getToken.do");
-                  case 123:
-                    aF = b6.sent;
-                    eval(aF.token);
-                    aG = window[ao];
-                    b6.next = 128;
-                    return T("/activity/doTakePrize", "alipay=".concat(t, "&realname=").concat(encodeURI(s), "&recordId=").concat(aE, "&token=").concat(aG));
-                  case 128:
-                    aH = b6.sent;
-                    console.log(aH.message);
-                    n += "用户：".concat(q, " 抽奖获得：").concat(aw.lottery.title, " 领取结果：").concat(aH.message, "\n");
-                    b6.next = 134;
-                    break;
-                  case 133:
-                    console.log("请设置支付宝姓名和账号");
-                  case 134:
-                    b6.next = 98;
-                    break;
-                  case 136:
-                    b6.next = 139;
-                    break;
-                  case 138:
-                    console.log(at.message);
-                  case 139:
-                    aq++;
-                    b6.next = 83;
-                    break;
-                  case 142:
-                    b6.next = 145;
-                    break;
-                  case 144:
-                    console.log("获取id失败");
-                  case 145:
-                    console.log("————————————");
-                    console.log("开始签到");
-                    b6.next = 149;
-                    return J("/api/user_mumber/sign");
-                  case 149:
-                    aI = b6.sent;
-                    console.log("签到获得：".concat(aI.data.signIntegral, "积分"));
-                    console.log("————————————");
-                    console.log("开始任务");
-                    aJ = true;
-                    aK = true;
-                    aL = true;
-                    b6.next = 158;
-                    return J("/api/user_center/task?type=1&current=1&size=20");
-                  case 158:
-                    aM = b6.sent;
-                    aN = c(aM.data.list);
-                    b6.prev = 160;
-                    aN.s();
-                  case 162:
-                    if ((aO = aN.n()).done) {
-                      {
-                        b6.next = 184;
-                        break;
-                      }
-                    }
-                    if (aP = aO.value, console.log("任务：".concat(aP.name)), 1 != aP.completed) {
-                      {
-                        b6.next = 168;
-                        break;
-                      }
-                    }
-                    console.log("任务已完成");
-                    return b6.abrupt("continue", 182);
-                  case 168:
-                    if (console.log("任务进度：".concat(aP.finish_times, "/").concat(aP.frequency)), "使用本地服务" != aP.name) {
-                      {
-                        b6.next = 179;
-                        break;
-                      }
-                    }
-                    aQ = aP.finish_times;
-                  case 171:
-                    if (!(aQ < aP.frequency)) {
-                      {
-                        b6.next = 179;
-                        break;
-                      }
-                    }
-                    b6.next = 174;
-                    return L("/api/user_mumber/doTask", "memberType=6&member_type=6");
-                  case 174:
-                    aR = b6.sent;
-                    console.log("任务完成获得：".concat(aR.data.score_notify.integral, "积分"));
-                  case 176:
-                    aQ++;
-                    b6.next = 171;
-                    break;
-                  case 179:
-                    "新闻资讯阅读" == aP.name && (aJ = false);
-                    "新闻资讯点赞" == aP.name && (aK = false);
-                    "分享资讯给好友" == aP.name && (aL = false);
-                  case 182:
-                    b6.next = 162;
-                    break;
-                  case 184:
-                    b6.next = 189;
-                    break;
-                  case 186:
-                    b6.prev = 186;
-                    b6.t0 = b6.catch(160);
-                    aN.e(b6.t0);
-                  case 189:
-                    b6.prev = 189;
-                    aN.f();
-                    return b6.finish(189);
-                  case 192:
-                    if (aJ && aK && aL) {
-                      {
-                        b6.next = 227;
-                        break;
-                      }
-                    }
-                    b6.next = 195;
-                    return J("/api/article/channel_list?channel_id=65e80c4779f6be5b358ba671&isDiFangHao=false&is_new=true&list_count=0&size=30");
-                  case 195:
-                    aS = b6.sent;
-                    aT = c(aS.data.article_list);
-                    b6.prev = 197;
-                    aT.s();
-                  case 199:
-                    if ((aU = aT.n()).done) {
-                      {
-                        b6.next = 219;
-                        break;
-                      }
-                    }
-                    if (aV = aU.value, aW = aV.id, aJ) {
-                      {
-                        b6.next = 207;
-                        break;
-                      }
-                    }
-                    b6.next = 205;
-                    return J("/api/article/read_time?channel_article_id=".concat(aW, "&is_end=true&read_time=3051"));
-                  case 205:
-                    aX = b6.sent;
-                    aX.data ? console.log("阅读获得：".concat(null === (aY = aX.data) || undefined === aY || null === (aY = aY.score_notify) || undefined === aY ? undefined : aY.integral, "积分")) : console.log("文章已经阅读过了");
-                  case 207:
-                    if (aK) {
-                      {
-                        b6.next = 212;
-                        break;
-                      }
-                    }
-                    b6.next = 210;
-                    return L("/api/favorite/like", "action=true&id=".concat(aW));
-                  case 210:
-                    aZ = b6.sent;
-                    aZ.data ? console.log("点赞获得：".concat(null === (b0 = aZ.data) || undefined === b0 || null === (b0 = b0.score_notify) || undefined === b0 ? undefined : b0.integral, "积分")) : console.log("文章已经点赞过了");
-                  case 212:
-                    if (aL) {
-                      {
-                        b6.next = 217;
-                        break;
-                      }
-                    }
-                    b6.next = 215;
-                    return L("/api/user_mumber/doTask", "memberType=3&member_type=3&target_id==".concat(aW));
-                  case 215:
-                    b1 = b6.sent;
-                    b1.data.score_notify ? console.log("分享获得：".concat(null === (b2 = b1.data) || undefined === b2 || null === (b2 = b2.score_notify) || undefined === b2 ? undefined : b2.integral, "积分")) : console.log("文章已经分享过了");
-                  case 217:
-                    b6.next = 199;
-                    break;
-                  case 219:
-                    b6.next = 224;
-                    break;
-                  case 221:
-                    b6.prev = 221;
-                    b6.t1 = b6.catch(197);
-                    aT.e(b6.t1);
-                  case 224:
-                    b6.prev = 224;
-                    aT.f();
-                    return b6.finish(224);
-                  case 227:
-                    console.log("————————————");
-                    console.log("查询积分");
-                    b6.next = 231;
-                    return J("/api/user_mumber/account_detail");
-                  case 231:
-                    b3 = b6.sent;
-                    console.log("拥有积分：".concat(b3.data.rst.total_integral, "\n"));
-                    n += "用户：".concat(q, " 积分：").concat(b3.data.rst.total_integral, "\n");
-                  case 234:
-                    b6.next = 13;
-                    break;
-                  case 236:
-                    b6.next = 241;
-                    break;
-                  case 238:
-                    b6.prev = 238;
-                    b6.t2 = b6.catch(11);
-                    aa.e(b6.t2);
-                  case 241:
-                    b6.prev = 241;
-                    aa.f();
-                    return b6.finish(241);
-                  case 244:
-                    if (!n) {
-                      {
-                        b6.next = 247;
-                        break;
-                      }
-                    }
-                    b6.next = 247;
-                    return a3(n);
-                  case 247:
-                  case "end":
-                    return b6.stop();
-                }
+    E = i(g().mark(function a7() {
+      var a9;
+      var aa;
+      var ab;
+      var ac;
+      var ad;
+      var ae;
+      var af;
+      var ag;
+      var ah;
+      var ai;
+      var aj;
+      var ak;
+      var al;
+      var am;
+      var an;
+      var ao;
+      var ap;
+      var aq;
+      var ar;
+      var as;
+      var at;
+      var au;
+      var av;
+      var aw;
+      var ax;
+      var ay;
+      var az;
+      var aA;
+      var aB;
+      var aC;
+      var aD;
+      var aE;
+      var aF;
+      var aG;
+      var aH;
+      var aI;
+      var aJ;
+      var aK;
+      var aL;
+      var aM;
+      var aN;
+      var aO;
+      var aP;
+      var aQ;
+      var aR;
+      var aS;
+      var aT;
+      var aU;
+      var aV;
+      var aW;
+      var aX;
+      var aY;
+      var aZ;
+      var b0;
+      var b1;
+      var b2;
+      var b3;
+      return g().wrap(function b5(b6) {
+        for (;;) {
+          switch (b6.prev = b6.next) {
+            case 0:
+              if (console.log("作者：@xzxxn777\n频道：https://t.me/xzxxn777\n群组：https://t.me/xzxxn7777\n自用机场推荐：https://xn--diqv0fut7b.com\n"), j) {
+                b6.next = 6;
+                break;
               }
-            }
-          }, a7, null, [[11, 238, 241, 244], [160, 186, 189, 192], [197, 221, 224, 227]]);
+              console.log("先去boxjs填写账号密码");
+              b6.next = 5;
+              return a3("先去boxjs填写账号密码");
+            case 5:
+              return b6.abrupt("return");
+            case 6:
+              b6.next = 8;
+              return a1();
+            case 8:
+              l = b6.sent;
+              a9 = j.split(" ");
+              aa = c(a9);
+              b6.prev = 11;
+              aa.s();
+            case 13:
+              if ((ab = aa.n()).done) {
+                b6.next = 236;
+                break;
+              }
+              ac = ab.value;
+              console.log("随机生成UA");
+              ad = Z();
+              u = ad.ua;
+              v = ad.commonUa;
+              w = ad.uuid;
+              console.log(u);
+              console.log(v);
+              q = ac.split("&")[0];
+              r = ac.split("&")[1];
+              s = ac.split("&")[2];
+              t = ac.split("&")[3] || q;
+              console.log("用户：".concat(q, "开始任务"));
+              console.log("获取sessionId");
+              b6.next = 30;
+              return L("/api/account/init");
+            case 30:
+              ae = b6.sent;
+              o = ae.data.session.id;
+              console.log(o);
+              console.log("获取signature_key");
+              b6.next = 36;
+              return F("/web/init?client_id=".concat(B));
+            case 36:
+              af = b6.sent;
+              m = af.data.client.signature_key;
+              console.log(m);
+              console.log("获取code");
+              b6.next = 42;
+              return H("/web/oauth/credential_auth");
+            case 42:
+              if (ag = b6.sent, ag.data) {
+                b6.next = 46;
+                break;
+              }
+              console.log(ag.message);
+              return b6.abrupt("continue", 234);
+            case 46:
+              ah = ag.data.authorization_code.code;
+              console.log(ah);
+              console.log("登录");
+              b6.next = 51;
+              return L("/api/zbtxz/login", "check_token=&code=".concat(ah, "&token=&type=-1&union_id="));
+            case 51:
+              if (ai = b6.sent, console.log("登录成功"), p = ai.data.session.account_id, o = ai.data.session.id, console.log("————————————"), y) {
+                b6.next = 64;
+                break;
+              }
+              console.log("获取id");
+              b6.next = 60;
+              return J("/api/buoy/list");
+            case 60:
+              aj = b6.sent;
+              ak = /hdtool%2Findex%3Fid%3D(\d+)/;
+              al = JSON.stringify(aj).match(ak);
+              al && (y = al[1]);
+            case 64:
+              if (!y) {
+                b6.next = 144;
+                break;
+              }
+              console.log("阅读登录");
+              b6.next = 68;
+              return N("/customActivity/zjtm/autoLogin?_=".concat(Date.now(), "&sessionId=").concat(o, "&accountId=").concat(p, "&redirectUrl=https://92261.activity-14.m.duiba.com.cn/hdtool/index?id=").concat(y, "&dbnewopen"));
+            case 68:
+              am = b6.sent;
+              an = am.data;
+              x = "";
+              b6.next = 73;
+              return R(an);
+            case 73:
+              x = b6.sent;
+              console.log("获取抽奖key");
+              b6.next = 77;
+              return P("https://92261.activity-14.m.duiba.com.cn/hdtool/index?id=".concat(y, "&dbnewopen&from=login&spm=92261.1.1.1"));
+            case 77:
+              ao = b6.sent;
+              b6.next = 80;
+              return T("/hdtool/ajaxElement?_=".concat(Date.now()), "hdType=dev&hdToolId=&preview=false&actId=".concat(y, "&adslotId="));
+            case 80:
+              ap = b6.sent;
+              console.log("拥有".concat(ap.element.freeLimit, "次抽奖"));
+              aq = 0;
+            case 83:
+              if (!(aq < ap.element.freeLimit)) {
+                b6.next = 142;
+                break;
+              }
+              b6.next = 86;
+              return T("/hdtool/ctoken/getTokenNew", "timestamp=".concat(Date.now(), "&activityId=").concat(y, "&activityType=hdtool&consumerId=").concat(z));
+            case 86:
+              ar = b6.sent;
+              eval(ar.token);
+              as = window[ao];
+              b6.next = 91;
+              return T("/hdtool/dy/doJoin?dpm=92261.3.1.0&activityId=".concat(y, "&_=").concat(Date.now()), "actId=".concat(y, "&oaId=").concat(y, "&activityType=hdtool&consumerId=").concat(z, "&token=").concat(as));
+            case 91:
+              if (at = b6.sent, !at.success) {
+                b6.next = 138;
+                break;
+              }
+              if (at.orderId) {
+                b6.next = 96;
+                break;
+              }
+              console.log(at.message);
+              return b6.abrupt("break", 142);
+            case 96:
+              au = at.orderId;
+              av = 0;
+            case 98:
+              if (0 != av) {
+                b6.next = 136;
+                break;
+              }
+              b6.next = 101;
+              return T("/hdtool/getOrderStatus?_=".concat(Date.now()), "orderId=".concat(au, "&adslotId="));
+            case 101:
+              if (aw = b6.sent, av = aw.result, 0 != av) {
+                b6.next = 107;
+                break;
+              }
+              console.log(aw.message);
+              b6.next = 134;
+              break;
+            case 107:
+              if ("thanks" == aw.lottery.type && console.log("谢谢参与"), "alipay" != aw.lottery.type) {
+                b6.next = 134;
+                break;
+              }
+              for (console.log("抽奖获得支付宝红包：".concat(aw.lottery.title)), ax = aw.lottery.link, ay = ax.split("?")[1], az = {}, aA = ay.split("&"), aB = 0, aC = aA.length; aB < aC; aB++) {
+                aD = aA[aB].split("=");
+                az[aD[0]] = aD[1];
+              }
+              if (aE = az.recordId, !s || !t) {
+                b6.next = 133;
+                break;
+              }
+              console.log("获取兑换key");
+              b6.next = 120;
+              return P("https://92261.activity-14.m.duiba.com.cn/activity/takePrizeNew?recordId=".concat(aE, "&dbnewopen"));
+            case 120:
+              ao = b6.sent;
+              b6.next = 123;
+              return T("/ctoken/getToken.do");
+            case 123:
+              aF = b6.sent;
+              eval(aF.token);
+              aG = window[ao];
+              b6.next = 128;
+              return T("/activity/doTakePrize", "alipay=".concat(t, "&realname=").concat(encodeURI(s), "&recordId=").concat(aE, "&token=").concat(aG));
+            case 128:
+              aH = b6.sent;
+              console.log(aH.message);
+              n += "用户：".concat(q, " 抽奖获得：").concat(aw.lottery.title, " 领取结果：").concat(aH.message, "\n");
+              b6.next = 134;
+              break;
+            case 133:
+              console.log("请设置支付宝姓名和账号");
+            case 134:
+              b6.next = 98;
+              break;
+            case 136:
+              b6.next = 139;
+              break;
+            case 138:
+              console.log(at.message);
+            case 139:
+              aq++;
+              b6.next = 83;
+              break;
+            case 142:
+              b6.next = 145;
+              break;
+            case 144:
+              console.log("获取id失败");
+            case 145:
+              console.log("————————————");
+              console.log("开始签到");
+              b6.next = 149;
+              return J("/api/user_mumber/sign");
+            case 149:
+              aI = b6.sent;
+              console.log("签到获得：".concat(aI.data.signIntegral, "积分"));
+              console.log("————————————");
+              console.log("开始任务");
+              aJ = true;
+              aK = true;
+              aL = true;
+              b6.next = 158;
+              return J("/api/user_center/task?type=1&current=1&size=20");
+            case 158:
+              aM = b6.sent;
+              aN = c(aM.data.list);
+              b6.prev = 160;
+              aN.s();
+            case 162:
+              if ((aO = aN.n()).done) {
+                b6.next = 184;
+                break;
+              }
+              if (aP = aO.value, console.log("任务：".concat(aP.name)), 1 != aP.completed) {
+                b6.next = 168;
+                break;
+              }
+              console.log("任务已完成");
+              return b6.abrupt("continue", 182);
+            case 168:
+              if (console.log("任务进度：".concat(aP.finish_times, "/").concat(aP.frequency)), "使用本地服务" != aP.name) {
+                b6.next = 179;
+                break;
+              }
+              aQ = aP.finish_times;
+            case 171:
+              if (!(aQ < aP.frequency)) {
+                b6.next = 179;
+                break;
+              }
+              b6.next = 174;
+              return L("/api/user_mumber/doTask", "memberType=6&member_type=6");
+            case 174:
+              aR = b6.sent;
+              console.log("任务完成获得：".concat(aR.data.score_notify.integral, "积分"));
+            case 176:
+              aQ++;
+              b6.next = 171;
+              break;
+            case 179:
+              "新闻资讯阅读" == aP.name && (aJ = false);
+              "新闻资讯点赞" == aP.name && (aK = false);
+              "分享资讯给好友" == aP.name && (aL = false);
+            case 182:
+              b6.next = 162;
+              break;
+            case 184:
+              b6.next = 189;
+              break;
+            case 186:
+              b6.prev = 186;
+              b6.t0 = b6.catch(160);
+              aN.e(b6.t0);
+            case 189:
+              b6.prev = 189;
+              aN.f();
+              return b6.finish(189);
+            case 192:
+              if (aJ && aK && aL) {
+                b6.next = 227;
+                break;
+              }
+              b6.next = 195;
+              return J("/api/article/channel_list?channel_id=65e80c4779f6be5b358ba671&isDiFangHao=false&is_new=true&list_count=0&size=30");
+            case 195:
+              aS = b6.sent;
+              aT = c(aS.data.article_list);
+              b6.prev = 197;
+              aT.s();
+            case 199:
+              if ((aU = aT.n()).done) {
+                b6.next = 219;
+                break;
+              }
+              if (aV = aU.value, aW = aV.id, aJ) {
+                b6.next = 207;
+                break;
+              }
+              b6.next = 205;
+              return J("/api/article/read_time?channel_article_id=".concat(aW, "&is_end=true&read_time=3051"));
+            case 205:
+              aX = b6.sent;
+              aX.data ? console.log("阅读获得：".concat(null === (aY = aX.data) || undefined === aY || null === (aY = aY.score_notify) || undefined === aY ? undefined : aY.integral, "积分")) : console.log("文章已经阅读过了");
+            case 207:
+              if (aK) {
+                b6.next = 212;
+                break;
+              }
+              b6.next = 210;
+              return L("/api/favorite/like", "action=true&id=".concat(aW));
+            case 210:
+              aZ = b6.sent;
+              aZ.data ? console.log("点赞获得：".concat(null === (b0 = aZ.data) || undefined === b0 || null === (b0 = b0.score_notify) || undefined === b0 ? undefined : b0.integral, "积分")) : console.log("文章已经点赞过了");
+            case 212:
+              if (aL) {
+                b6.next = 217;
+                break;
+              }
+              b6.next = 215;
+              return L("/api/user_mumber/doTask", "memberType=3&member_type=3&target_id==".concat(aW));
+            case 215:
+              b1 = b6.sent;
+              b1.data.score_notify ? console.log("分享获得：".concat(null === (b2 = b1.data) || undefined === b2 || null === (b2 = b2.score_notify) || undefined === b2 ? undefined : b2.integral, "积分")) : console.log("文章已经分享过了");
+            case 217:
+              b6.next = 199;
+              break;
+            case 219:
+              b6.next = 224;
+              break;
+            case 221:
+              b6.prev = 221;
+              b6.t1 = b6.catch(197);
+              aT.e(b6.t1);
+            case 224:
+              b6.prev = 224;
+              aT.f();
+              return b6.finish(224);
+            case 227:
+              console.log("————————————");
+              console.log("查询积分");
+              b6.next = 231;
+              return J("/api/user_mumber/account_detail");
+            case 231:
+              b3 = b6.sent;
+              console.log("拥有积分：".concat(b3.data.rst.total_integral, "\n"));
+              n += "用户：".concat(q, " 积分：").concat(b3.data.rst.total_integral, "\n");
+            case 234:
+              b6.next = 13;
+              break;
+            case 236:
+              b6.next = 241;
+              break;
+            case 238:
+              b6.prev = 238;
+              b6.t2 = b6.catch(11);
+              aa.e(b6.t2);
+            case 241:
+              b6.prev = 241;
+              aa.f();
+              return b6.finish(241);
+            case 244:
+              if (!n) {
+                b6.next = 247;
+                break;
+              }
+              b6.next = 247;
+              return a3(n);
+            case 247:
+            case "end":
+              return b6.stop();
+          }
         }
-      }));
-      return E.apply(this, arguments);
-    }
+      }, a7, null, [[11, 238, 241, 244], [160, 186, 189, 192], [197, 221, 224, 227]]);
+    }));
+    return E.apply(this, arguments);
   }
   function F(a5) {
-    {
-      return G.apply(this, arguments);
-    }
+    return G.apply(this, arguments);
   }
   function G() {
     G = i(g().mark(function a5(a6) {
