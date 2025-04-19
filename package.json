@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@babel/generator": "^7.17.10",
-    "@babel/parser": "^7.17.10",
-    "@babel/traverse": "^7.17.10",
+    "@babel/parser": "^7.27.0",
+    "@babel/traverse": "^7.27.0",
     "@babel/types": "^7.17.10",
     "base64url": "^3.0.1",
     "crypto-js": "^4.2.0",
